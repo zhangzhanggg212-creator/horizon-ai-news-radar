@@ -117,10 +117,7 @@
       "fetch_top_stories": 25,
       "min_score": 100,
       "category": "community",
-      "profile": [
-        "video-industry",
-        "ai-creator"
-      ]
+      "profile": "ai-creator"
     },
     "rss": [
       {
