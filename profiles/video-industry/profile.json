@@ -1,0 +1,63 @@
+{
+  "id": "video-industry",
+  "name": "Video Industry Radar",
+  "display_names": {
+    "zh": "视频行业热点雷达"
+  },
+  "match": "match.md",
+  "analysis": "analysis.md",
+  "enrichment": {
+    "prompt": "enrichment.md",
+    "blocks": [
+      {
+        "id": "summary",
+        "type": "section",
+        "tools": [],
+        "primary": true
+      },
+      {
+        "id": "why_now",
+        "type": "section",
+        "tools": [],
+        "optional": true
+      },
+      {
+        "id": "creator_impact",
+        "type": "section",
+        "tools": []
+      },
+      {
+        "id": "video_angle",
+        "type": "section",
+        "tools": []
+      },
+      {
+        "id": "title_options",
+        "type": "section",
+        "tools": []
+      },
+      {
+        "id": "hook",
+        "type": "section",
+        "tools": []
+      },
+      {
+        "id": "video_outline",
+        "type": "section",
+        "tools": []
+      },
+      {
+        "id": "visual_material",
+        "type": "section",
+        "tools": [],
+        "optional": true
+      },
+      {
+        "id": "fact_check",
+        "type": "section",
+        "tools": [],
+        "optional": true
+      }
+    ]
+  }
+}

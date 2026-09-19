@@ -15,10 +15,14 @@
   },
   "processing": {
     "profiles_dir": "profiles",
-    "default_profile": "ai-creator",
+    "default_profile": "video-industry",
     "profile_settings": {
       "ai-creator": {
         "threshold": 7.5,
+        "topic_dedup": true
+      },
+      "video-industry": {
+        "threshold": 7.0,
         "topic_dedup": true
       }
     }
@@ -78,7 +82,34 @@
         "repo": "ComfyUI",
         "enabled": true,
         "category": "creator-tools",
-        "profile": "ai-creator"
+        "profile": [
+          "video-industry",
+          "ai-creator"
+        ]
+      },
+      {
+        "type": "repo_releases",
+        "owner": "obsproject",
+        "repo": "obs-studio",
+        "enabled": true,
+        "category": "streaming-tools",
+        "profile": "video-industry"
+      },
+      {
+        "type": "repo_releases",
+        "owner": "yt-dlp",
+        "repo": "yt-dlp",
+        "enabled": true,
+        "category": "creator-tools",
+        "profile": "video-industry"
+      },
+      {
+        "type": "repo_releases",
+        "owner": "mifi",
+        "repo": "lossless-cut",
+        "enabled": true,
+        "category": "post-production",
+        "profile": "video-industry"
       }
     ],
     "hackernews": {
@@ -86,7 +117,10 @@
       "fetch_top_stories": 25,
       "min_score": 100,
       "category": "community",
-      "profile": "ai-creator"
+      "profile": [
+        "video-industry",
+        "ai-creator"
+      ]
     },
     "rss": [
       {
@@ -143,6 +177,62 @@
         "enabled": true,
         "category": "open-source",
         "profile": "ai-creator"
+      },
+      {
+        "name": "YouTube Official Blog",
+        "url": "https://blog.youtube/rss/",
+        "enabled": true,
+        "category": "video-platform",
+        "profile": "video-industry",
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "PetaPixel",
+        "url": "https://petapixel.com/feed/",
+        "enabled": true,
+        "category": "video-production",
+        "profile": "video-industry",
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "CineD",
+        "url": "https://www.cined.com/feed/",
+        "enabled": true,
+        "category": "video-gear",
+        "profile": "video-industry",
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "No Film School",
+        "url": "https://nofilmschool.com/rss.xml",
+        "enabled": true,
+        "category": "video-production",
+        "profile": "video-industry",
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "Frame.io Insider",
+        "url": "https://blog.frame.io/feed/",
+        "enabled": true,
+        "category": "post-production",
+        "profile": "video-industry",
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "Social Media Today",
+        "url": "https://www.socialmediatoday.com/feeds/news/",
+        "enabled": true,
+        "category": "creator-economy",
+        "profile": "video-industry",
+        "content_extractor": "trafilatura"
+      },
+      {
+        "name": "Newsshooter",
+        "url": "https://www.newsshooter.com/feed/",
+        "enabled": true,
+        "category": "video-gear",
+        "profile": "video-industry",
+        "content_extractor": "trafilatura"
       }
     ],
     "reddit": {
@@ -167,6 +257,36 @@
           "min_score": 50,
           "category": "community",
           "profile": "ai-creator"
+        },
+        {
+          "subreddit": "videography",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 10,
+          "min_score": 25,
+          "category": "video-community",
+          "profile": "video-industry"
+        },
+        {
+          "subreddit": "VideoEditing",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 10,
+          "min_score": 25,
+          "category": "video-community",
+          "profile": "video-industry"
+        },
+        {
+          "subreddit": "NewTubers",
+          "enabled": true,
+          "sort": "hot",
+          "time_filter": "day",
+          "fetch_limit": 10,
+          "min_score": 25,
+          "category": "video-community",
+          "profile": "video-industry"
         }
       ],
       "users": [],
@@ -191,7 +311,10 @@
       "keywords": [],
       "fetch_limit": 10,
       "category": "community",
-      "profile": "ai-creator"
+      "profile": [
+        "video-industry",
+        "ai-creator"
+      ]
     },
     "openbb": {
       "enabled": false,
@@ -234,21 +357,25 @@
     },
     "google_news": {
       "enabled": true,
-      "query": "人工智能 OR 大模型 OR 生成式AI OR AI视频",
+      "query": "短视频 OR 视频创作 OR 视频平台 OR 摄影器材 OR 剪辑软件 OR AI视频 OR YouTube OR 抖音 OR B站",
       "language": "zh-CN",
       "country": "CN",
       "ceid": "CN:zh-Hans",
-      "max_results": 30,
-      "category": "news-search",
-      "profile": "ai-creator"
+      "max_results": 50,
+      "category": "video-news-search",
+      "profile": [
+        "video-industry",
+        "ai-creator"
+      ]
     }
   },
   "collection": {
     "time_window_hours": 24
   },
   "digest": {
-    "max_items": 12,
+    "max_items": 16,
     "profile_order": [
+      "video-industry",
       "ai-creator"
     ],
     "category_groups": {
@@ -265,8 +392,22 @@
         "name": "开源项目与创作工具",
         "limit": 4,
         "categories": [
-          "open-source",
-          "creator-tools"
+          "open-source"
+        ]
+      },
+      "video_industry": {
+        "name": "视频行业、平台与制作工具",
+        "limit": 8,
+        "categories": [
+          "video-platform",
+          "video-production",
+          "video-gear",
+          "post-production",
+          "creator-economy",
+          "creator-tools",
+          "streaming-tools",
+          "video-community",
+          "video-news-search"
         ]
       },
       "community": {
@@ -282,8 +423,7 @@
         "name": "媒体与中文搜索",
         "limit": 3,
         "categories": [
-          "media",
-          "news-search"
+          "media"
         ]
       }
     },
